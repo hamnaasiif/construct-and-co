@@ -1,17 +1,10 @@
 # 🏗️ Construct & Co. - Professional Construction Company Website
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue?style=for-the-badge&logo=vercel)](https://hamnaasiif.github.io/construct-and-co/)
 [![React](https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![CSS3](https://img.shields.io/badge/CSS3-Modern-1572B6?style=for-the-badge&logo=css3)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
 > **A modern, responsive construction company website built with React, showcasing professional services, project portfolios, and company expertise with an emphasis on user experience and visual appeal.**
-
-## 🌟 Live Demo
-
-**[🚀 View Live Site](https://hamnaasiif.github.io/construct-and-co/)**
-
----
 
 ## 📋 Table of Contents
 
@@ -21,7 +14,6 @@
 - [Project Structure](#-project-structure)
 - [Installation](#-installation)
 - [Usage](#-usage)
-- [Components](#-components)
 - [Pages](#-pages)
 - [Performance](#-performance)
 - [Contributing](#-contributing)
@@ -200,57 +192,6 @@ yarn build
 
 ---
 
-## 🧩 Components
-
-### **Core Components**
-
-#### **TeamCard**
-\`\`\`jsx
-<TeamCard 
-  name="John Mitchell"
-  role="CEO & Founder"
-  experience="25+ Years"
-  skills={["Leadership", "Strategy", "Innovation"]}
-  achievement="Founder"
-  social={{linkedin: "#", email: "john@constructandco.com"}}
-  onContactClick={handleContact}
-/>
-\`\`\`
-
-#### **ServiceCard**
-\`\`\`jsx
-<ServiceCard 
-  service={{
-    title: "Construction",
-    description: "Complete construction solutions...",
-    features: ["Residential", "Commercial", "Infrastructure"]
-  }}
-  onLearnMore={openModal}
-/>
-\`\`\`
-
-#### **BlogCard**
-\`\`\`jsx
-<BlogCard 
-  blog={{
-    title: "Modern Construction Techniques",
-    category: "Construction",
-    date: "December 15, 2024"
-  }}
-  image={blogImage}
-  onReadMore={handleReadMore}
-/>
-\`\`\`
-
-### **Advanced Features**
-
-- **Modal System** - Dynamic content overlays for detailed information
-- **Filtering Logic** - Category-based project and content filtering
-- **Responsive Navigation** - Mobile-optimized menu with smooth transitions
-- **Form Handling** - Contact form with validation and user feedback
-
----
-
 ## 📄 Pages
 
 ### **Homepage (`/`)**
@@ -314,7 +255,6 @@ yarn build
 - **LinkedIn** - [LinkedIn Profile](https://www.linkedin.com/in/hamna-asif-98121936b/)
 
 ### **Project Links**
-- **Live Demo** - [construction-site-frontend](https://github.com/hamnaasiif/construction-site-frontend)
 - **Repository** - [GitHub Repo](https://github.com/hamnaasiif/construction-site-frontend)
 
 ---
