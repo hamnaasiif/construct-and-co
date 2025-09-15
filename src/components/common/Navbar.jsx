@@ -1,48 +1,42 @@
-"use client"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import Button from "./Button"
 import "./navbar.css"
 
-const Navbar = ({ onNavigate }) => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const handleNavigation = (page) => {
-    if (onNavigate) {
-      onNavigate(page)
-    }
+  const closeMenu = () => {
     setIsMenuOpen(false)
   }
 
   const navLinks = [
-    { name: "About Company", page: "about" },
-    { name: "Our Services", page: "services" },
-    { name: "Projects", page: "projects" },
-    { name: "Blog", page: "blog" },
-    { name: "Contact Us", page: "contact" },
+    { name: "About Company", path: "/about" },
+    { name: "Our Services", path: "/services" },
+    { name: "Projects", path: "/projects" },
+    { name: "Blog", path: "/blog" },
+    { name: "Contact Us", path: "/contact" },
   ]
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-content">
-          <div className="navbar-logo" onClick={() => handleNavigation("home")} style={{ cursor: "pointer" }}>
+          <Link to="/" className="navbar-logo" style={{ cursor: "pointer", textDecoration: "none" }}>
             <span className="logo-text">Construct & Co.</span>
-          </div>
+          </Link>
 
           <div className="navbar-desktop">
             <div className="nav-links-container">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href="#"
+                  to={link.path}
                   className="nav-link"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    handleNavigation(link.page)
-                  }}
+                  onClick={closeMenu}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -64,26 +58,24 @@ const Navbar = ({ onNavigate }) => {
           <div className="mobile-menu">
             <div className="mobile-menu-content">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href="#"
+                  to={link.path}
                   className="mobile-nav-link"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    handleNavigation(link.page)
-                  }}
+                  onClick={closeMenu}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
-              <Button
-                variant="secondary"
-                size="medium"
-                className="mobile-contact-button"
-                onClick={() => handleNavigation("contact")}
-              >
-                Contact
-              </Button>
+              <Link to="/contact" onClick={closeMenu}>
+                <Button
+                  variant="secondary"
+                  size="medium"
+                  className="mobile-contact-button"
+                >
+                  Contact
+                </Button>
+              </Link>
             </div>
           </div>
         )}

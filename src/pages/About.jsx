@@ -6,7 +6,7 @@ import TeamCard from "../components/about/TeamCard"
 import bg from "../assets/about-bg.jpeg"
 import "./about.css"
 
-const About = ({ onNavigate }) => {
+const About = () => {
   const [notification, setNotification] = React.useState(null)
 
   const showNotification = (message) => {
@@ -14,7 +14,6 @@ const About = ({ onNavigate }) => {
     setTimeout(() => setNotification(null), 3000)
   }
 
-  // Team members data
   const teamMembers = [
     {
       name: "John Mitchell",
@@ -98,7 +97,7 @@ const About = ({ onNavigate }) => {
 
   return (
     <div className="about-page">
-      <Navbar onNavigate={onNavigate} />
+      <Navbar />
 
       {notification && <div className="notification">{notification}</div>}
 
@@ -114,7 +113,7 @@ const About = ({ onNavigate }) => {
         <div className="about-container">
           <div className="about-hero-content">
             <div className="breadcrumb">
-              <span onClick={() => onNavigate("home")} style={{ cursor: "pointer" }}>
+              <span style={{ cursor: "pointer" }}>
                 Home
               </span>
               <span className="breadcrumb-separator">/</span>
@@ -236,7 +235,7 @@ const About = ({ onNavigate }) => {
         </div>
       </section>
 
-      <Footer onNavigate={onNavigate} />
+      <Footer />
     </div>
   )
 }

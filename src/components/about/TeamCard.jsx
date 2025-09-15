@@ -49,7 +49,6 @@ const TeamCard = ({
         <div className="team-card-role">{role}</div>
         <div className="team-card-experience">{experience} Experience</div>
 
-        {/* Skills tags */}
         {skills.length > 0 && (
           <div className="team-card-skills">
             {skills.map((skill, index) => (
@@ -60,7 +59,6 @@ const TeamCard = ({
           </div>
         )}
 
-        {/* Quote or description */}
         {(quote || description) && <div className="team-card-quote">"{quote || description}"</div>}
       </div>
     </div>

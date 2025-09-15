@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import Navbar from "../components/common/Navbar"
 import Footer from "../components/common/Footer"
 import Button from "../components/common/Button"
@@ -17,7 +18,7 @@ import project7 from "../assets/project7.jpeg"
 import project8 from "../assets/project8.jpeg"
 import "./projects.css"
 
-const Projects = ({ onNavigate }) => {
+const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All Projects")
   const [selectedProject, setSelectedProject] = useState(null)
 
@@ -52,10 +53,9 @@ const Projects = ({ onNavigate }) => {
   return (
     <div className="projects-page">
       <div className="projects-navbar-wrapper">
-        <Navbar onNavigate={onNavigate} />
+        <Navbar />
       </div>
 
-      {/* Hero Section */}
       <section
         className="projects-hero"
         style={{
@@ -68,7 +68,7 @@ const Projects = ({ onNavigate }) => {
         <div className="projects-container">
           <div className="projects-hero-content">
             <div className="breadcrumb">
-              <span onClick={() => onNavigate("home")} style={{ cursor: "pointer" }}>
+              <span style={{ cursor: "pointer" }}>
                 Home
               </span>
               <span className="breadcrumb-separator">/</span>
@@ -80,7 +80,6 @@ const Projects = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Stats Section */}
       <section className="projects-stats">
         <div className="projects-container">
           <div className="stats-grid">
@@ -104,7 +103,6 @@ const Projects = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Featured Projects Section */}
       <section className="featured-projects">
         <div className="projects-container">
           <div className="section-header">
@@ -141,7 +139,6 @@ const Projects = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* All Projects Section */}
       <section className="all-projects">
         <div className="projects-container">
           <div className="section-header">
@@ -152,7 +149,6 @@ const Projects = ({ onNavigate }) => {
             </p>
           </div>
 
-          {/* Category Filter */}
           <div className="category-filter">
             {projectCategories.map((category) => (
               <button
@@ -165,7 +161,6 @@ const Projects = ({ onNavigate }) => {
             ))}
           </div>
 
-          {/* Projects Grid */}
           <div className="projects-grid">
             {filteredProjects.map((project) => (
               <div key={project.id} className="project-card" onClick={() => openProjectModal(project)}>
@@ -199,7 +194,6 @@ const Projects = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Project Modal */}
       {selectedProject && (
         <div className="project-modal-overlay" onClick={closeProjectModal}>
           <div className="project-modal" onClick={(e) => e.stopPropagation()}>
@@ -303,7 +297,6 @@ const Projects = ({ onNavigate }) => {
         </div>
       )}
 
-      {/* CTA Section */}
       <section
         className="projects-cta"
         style={{
@@ -322,18 +315,22 @@ const Projects = ({ onNavigate }) => {
               requirements.
             </p>
             <div className="cta-buttons">
-              <Button variant="primary" size="large" onClick={() => onNavigate("contact")}>
-                Start Your Project
-              </Button>
-              <Button variant="secondary" size="large">
-                View Our Services
-              </Button>
+              <Link to="/contact">
+                <Button variant="primary" size="large">
+                  Start Your Project
+                </Button>
+              </Link>
+              <Link to="/services">
+                <Button variant="secondary" size="large">
+                  View Our Services
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <Footer onNavigate={onNavigate} />
+      <Footer />
     </div>
   )
 }

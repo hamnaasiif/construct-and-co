@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import Navbar from "../components/common/Navbar"
 import ServiceCard from "../components/services/ServiceCard"
 import Footer from "../components/common/Footer"
@@ -12,7 +13,7 @@ import card4 from "../assets/card4.jpg"
 import card5 from "../assets/card5.jpg"
 import card6 from "../assets/card6.jpg"
 
-const Services = ({ onNavigate }) => {
+const Services = () => {
   const [selectedService, setSelectedService] = useState(null)
 
   const services = [
@@ -89,7 +90,7 @@ const Services = ({ onNavigate }) => {
   return (
     <div className="services-page">
       <div className="services-navbar-wrapper">
-        <Navbar onNavigate={onNavigate} />
+        <Navbar />
       </div>
 
       <section
@@ -104,7 +105,7 @@ const Services = ({ onNavigate }) => {
         <div className="services-container">
           <div className="services-hero-content">
             <div className="breadcrumb">
-              <span onClick={() => onNavigate("home")} style={{ cursor: "pointer" }}>
+              <span style={{ cursor: "pointer" }}>
                 Home
               </span>
               <span className="breadcrumb-separator">/</span>
@@ -200,12 +201,16 @@ const Services = ({ onNavigate }) => {
                   </ul>
                 </div>
                 <div className="service-modal-actions">
-                  <button className="modal-cta-button" onClick={() => onNavigate("contact")}>
-                    Get Quote
-                  </button>
-                  <button className="modal-secondary-button" onClick={() => onNavigate("projects")}>
-                    View Projects
-                  </button>
+                  <Link to="/contact">
+                    <button className="modal-cta-button">
+                      Get Quote
+                    </button>
+                  </Link>
+                  <Link to="/projects">
+                    <button className="modal-secondary-button">
+                      View Projects
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -213,7 +218,7 @@ const Services = ({ onNavigate }) => {
         </div>
       )}
 
-      <Footer onNavigate={onNavigate} />
+      <Footer />
     </div>
   )
 }

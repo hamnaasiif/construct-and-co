@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import Navbar from "../components/common/Navbar"
 import Footer from "../components/common/Footer"
 import BlogCard from "../components/blog/BlogCard"
@@ -16,7 +17,7 @@ import img5 from "../assets/blog5.jpeg"
 import img6 from "../assets/blog6.jpeg"
 import img7 from "../assets/blog7.jpeg" 
 
-const Blog = ({ onNavigate }) => {
+const Blog = () => {
   const [selectedBlog, setSelectedBlog] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -46,7 +47,7 @@ const Blog = ({ onNavigate }) => {
   return (
     <div className="blog-page">
       <div className="blog-navbar-wrapper">
-        <Navbar onNavigate={onNavigate} />
+        <Navbar />
       </div>
 
       <section
@@ -61,7 +62,7 @@ const Blog = ({ onNavigate }) => {
         <div className="blog-container">
           <div className="blog-hero-content">
             <div className="breadcrumb">
-              <span onClick={() => onNavigate("home")} style={{ cursor: "pointer" }}>
+              <span style={{ cursor: "pointer" }}>
                 Home
               </span>
               <span className="breadcrumb-separator">/</span>
@@ -159,14 +160,16 @@ const Blog = ({ onNavigate }) => {
           <div className="cta-content">
             <span className="cta-label">Stay Informed</span>
             <h2>Ready to Start Your Next Construction Project?</h2>
-            <button className="cta-button" onClick={() => onNavigate("contact")}>
-              Get Free Consultation
-            </button>
+            <Link to="/contact">
+              <button className="cta-button">
+                Get Free Consultation
+              </button>
+            </Link>
           </div>
         </div>
       </section>
 
-      <Footer onNavigate={onNavigate} />
+      <Footer />
 
       {isModalOpen && selectedBlog && (
         <BlogModal blog={selectedBlog} image={imageMap[selectedBlog.image]} onClose={closeModal} />

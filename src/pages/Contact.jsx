@@ -1,4 +1,5 @@
 "use client"
+import { Link } from "react-router-dom"
 import Navbar from "../components/common/Navbar"
 import ContactForm from "../components/contact/ContactForm"
 import Button from "../components/common/Button"
@@ -7,14 +8,13 @@ import bg from "../assets/contact-bg.jpg"
 import contact from "../assets/contact1.jpg"
 import "./contact.css"
 
-const Contact = ({ onNavigate }) => {
+const Contact = () => {
   return (
     <div className="contact-page">
       <div className="contact-navbar-wrapper">
-        <Navbar onNavigate={onNavigate} />
+        <Navbar />
       </div>
 
-      {/* Hero Section */}
       <section className="contact-hero"
         style={{
           backgroundImage: `linear-gradient(rgba(10, 10, 10, 0.1), rgba(10, 10, 10, 0.1)), url(${bg})`,
@@ -26,7 +26,7 @@ const Contact = ({ onNavigate }) => {
         <div className="contact-container">
           <div className="contact-hero-content">
             <div className="breadcrumb">
-              <span onClick={() => onNavigate("home")} style={{ cursor: "pointer" }}>
+              <span style={{ cursor: "pointer" }}>
                 Home
               </span>
               <span className="breadcrumb-separator">/</span>
@@ -37,16 +37,13 @@ const Contact = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Main Contact Section */}
       <section className="contact-main">
         <div className="contact-container">
           <div className="contact-content">
-            {/* Left Side */}
             <div className="contact-form-section">
               <ContactForm />
             </div>
 
-            {/* Right Side */}
             <div className="contact-info-section">
               <div className="contact-info-content">
                 <p className="contact-description">
@@ -145,7 +142,6 @@ const Contact = ({ onNavigate }) => {
                   </div>
                 </div>
 
-                {/* Google Maps Embed */}
                 <div className="map-container">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.4037!2d-96.0169!3d41.2524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87938dc8b50cfced%3A0x46424d4fae37b604!2sOmaha%2C%20NE%2C%20USA!5e0!3m2!1sen!2sus!4v1635959542145!5m2!1sen!2sus"
@@ -164,7 +160,6 @@ const Contact = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Bottom CTA Section */}
       <section className="contact-cta"
         style={{
           backgroundImage: `linear-gradient(rgba(10, 10, 10, 0.1), rgba(10, 10, 10, 0.1)), url(${contact})`,
@@ -176,14 +171,16 @@ const Contact = ({ onNavigate }) => {
           <div className="cta-content">
             <span className="cta-label">Start Your Project</span>
             <h2>Ready to Build Your Dream? Let's Make It Happen Together</h2>
-            <Button variant="primary" size="large">
-              Get Free Quote
-            </Button>
+            <Link to="/contact">
+              <Button variant="primary" size="large">
+                Get Free Quote
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
-      <Footer onNavigate={onNavigate} />
+      <Footer />
     </div>
   )
 }

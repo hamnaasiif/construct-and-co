@@ -1,18 +1,16 @@
-"use client"
+import { Link } from "react-router-dom"
 import "./hero.css"
 import Button from "../common/Button"
 import heroImg from "../../assets/h1.png";
 
-const Hero = ({ onNavigate }) => {
+const Hero = () => {
   return (
     <div className="hero-section">
-      {/* Background Image */}
       <div
         className="hero-bg"
          style={{ backgroundImage: `url(${heroImg})` }}
       ></div>
 
-      {/* Hero Content */}
       <div className="hero-content">
         <div className="container">
           <div className="hero-text-container">
@@ -34,13 +32,14 @@ const Hero = ({ onNavigate }) => {
             </div>
 
             <div className="hero-button">
-              <Button
-                variant="primary"
-                size="large"
-                onClick={() => onNavigate && onNavigate("about")}
-              >
-                Learn more →
-              </Button>
+              <Link to="/about">
+                <Button
+                  variant="primary"
+                  size="large"
+                >
+                  Learn more →
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
